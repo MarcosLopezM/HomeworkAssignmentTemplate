@@ -1,0 +1,151 @@
+\documentclass[12pt]{article}
+\usepackage[export]{adjustbox}
+\usepackage{amsfonts, amsmath, amssymb, amsthm}
+\usepackage[english, spanish]{babel}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{kantlipsum}
+\usepackage{lastpage}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{physics}
+\usepackage[nolabel]{showlabels}
+\usepackage{siunitx}
+\usepackage{titling}
+\usepackage{xcolor}
+\usepackage{xparse}
+\usepackage{xspace}
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%Configuraciones extras%%%%%%%%%%%%%%%%%%
+\definecolor{base3}{RGB}{253, 246, 227}%
+\definecolor{pinkwave}{RGB}{255, 0, 128}%
+\pagecolor{base3}
+\graphicspath{{img/}}
+\setlength{\parindent}{2em} % Sangría
+\setlength{\parskip}{0.5em} % Espacio entre párrafos
+\linespread{1.1} % line spacing
+\setlength{\jot}{10pt} % Space between lines in multiline eqs
+
+% Configuración de ambiente para problema
+\theoremstyle{definition}
+\newtheorem{problema}{Problema}
+
+% Configuración del paquete hyperref
+\hypersetup{
+    colorlinks = true,%
+    linkcolor={[rgb]{0,0.2,0.6}},%
+    citecolor={[rgb]{0,0.6,0.2}},%
+    filecolor={[rgb]{0.8,0,0.8}},%
+    urlcolor={[rgb]{0.8,0,0.8}},%
+    runcolor={[rgb]{0.8,0,0.8}},% 
+    menucolor={[rgb]{0,0.2,0.6}},%
+    linkbordercolor={[rgb]{0,0.2,0.6}},%
+    citebordercolor={[rgb]{0,0.6,0.2}},%
+    filebordercolor={[rgb]{0.8,0,0.8}},%
+    urlbordercolor={[rgb]{0.8,0,0.8}},%
+    runbordercolor={[rgb]{0.8,0,0.8}},%
+    menubordercolor={[rgb]{0,0.2,0.6}},% 
+    pdftitle={Tarea X},%
+    pdfauthor={López Merino Marcos},%
+    pdfsubject={Subject},%
+    pdfkeywords={Facultad de Ciencias, UNAM, materia, palabras clave},%
+    unicode = true%
+}
+
+% Configuración del paquete siunitx
+\sisetup{
+	output-decimal-marker = {.}, 
+	per-mode = symbol-or-fraction,
+	separate-uncertainty = false,
+	exponent-product = \cross,
+    % inter-unit-product = \ensuremath{{}\vdot{}}
+}
+
+% Geometría del documento
+\geometry{
+    letterpaper,
+    top = 0.6in,
+    bottom = 0.8in,
+    left = 0.8in,
+    right = 0.8in
+}
+
+%%%%%%%%%%%%%%%%%%Nuevos comandos%%%%%%%%%%%%%%%%%%
+\newcommand*{\group}{XXXX}
+\newcommand*{\classname}{Subject}
+\newcommand*{\homeworknumber}{Tarea X}
+\newcommand*{\subject}{Tema}
+\newcommand*{\teacher}{Dr. Name LastName LastName}
+
+% unit vector i
+\newcommand*{\uveci}{{\bm{\hat{\textnormal{\bfseries\i}}}}}
+% unit vector j
+\newcommand*{\uvecj}{{\bm{\hat{\textnormal{\bfseries\j}}}}}
+% unit vector
+\DeclareRobustCommand{\uvec}[1]{{%
+  \ifcsname uvec#1\endcsname
+     \csname uvec#1\endcsname
+   \else
+    \bm{\hat{\mathbf{#1}}}%
+   \fi
+}}% 
+\newcommand{\idest}{\emph{i.e.},} % id est
+% Espacio vectorial, e.g., ℝ, ℂ, ℕ, etc.
+\NewDocumentCommand{\vecspace}{m o}{%
+  \IfValueTF{#2}{%
+    \mathbb{#1}^{#2}%
+  }{%
+    \mathbb{#1}%
+  }%
+}
+\newcommand*{\e}{\mathrm{e}} % exponential
+\newcommand{\solution}{\vspace*{4pt} \textbf{Solución}\vspace*{4pt}}
+
+%%%%%%%%%%%%%%%%%%Portada y configuración%%%%%%%%%%%%%%%%%%
+% Configuración de portada
+\setlength{\droptitle}{-80pt} % raise the title
+
+% Portada
+\title{
+    % \vspace{-1.5cm}
+    \textbf{\homeworknumber: \subject}\\
+    \normalsize\vspace{0.1in}\small{\textbf{Entrega}:~\today}\\
+    \vspace{0.1in}\large{Prof.: \teacher}
+    \vspace{-0.5cm}
+}
+\author{
+    \textbf{Alumno:}\\ 
+    López Merino, Marcos
+}
+\date{}
+
+%%%%%%%%%%%%%%%%%%Header and footer%%%%%%%%%%%%%%%%%%
+\setlength{\headheight}{15.2pt}
+\pagestyle{fancy}
+\lhead{Grupo \group, Sem. 2022-2}
+\chead{\classname}
+\rhead{\homeworknumber}
+\lfoot{\includegraphics[scale = 0.2, valign = c]{LogoFCUNAMcolor.pdf}}
+\cfoot{\textbf{Facultad de Ciencias, UNAM}}
+\rfoot{Pág. \thepage \hspace{1pt} de \pageref{LastPage}}
+
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+    \maketitle
+    \thispagestyle{fancy}
+    \input{src/Problem1.tex}
+    \input{src/Problem2.tex}
+    % \include{Problem1.tex}
+    % \include{Problem2.tex}
+\end{document}
