@@ -1,5 +1,6 @@
 \documentclass[12pt]{article}
 \usepackage[export]{adjustbox}
+\usepackage{anyfontsize}
 \usepackage{amsfonts, amsmath, amssymb, amsthm}
 \usepackage[english, spanish]{babel}
 \usepackage{bm}
@@ -14,8 +15,10 @@
 \usepackage{physics}
 \usepackage[nolabel]{showlabels}
 \usepackage{siunitx}
+\usepackage{tensor}
 \usepackage{titling}
 \usepackage{xcolor}
+\usepackage{xfrac}
 \usepackage{xparse}
 \usepackage{xspace}
 \usepackage{hyperref}
@@ -34,7 +37,16 @@
 \setlength{\jot}{10pt} % Space between lines in multiline eqs
 
 % Configuración de ambiente para problema
-\theoremstyle{definition}
+\newtheoremstyle{problem}%
+{3pt}% 
+{3pt}%
+{}%
+{}%
+{\bfseries}%
+{.}% 
+{.5em}%
+{}%
+\theoremstyle{problem}
 \newtheorem{problema}{Problema}
 
 % Configuración del paquete hyperref
